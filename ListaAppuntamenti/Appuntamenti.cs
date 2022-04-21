@@ -9,7 +9,7 @@ namespace ListaAppuntamenti
     internal class Appuntamenti 
     {
         //ATTRIBUTI
-        public string nome { get; }
+        public string nome;
         public string localitaAppuntamento { get; }
 
         public DateTime dataAppuntamento { get; set; }
@@ -27,9 +27,15 @@ namespace ListaAppuntamenti
             }   
         }
 
+        public string GetNome()
+        {
+            return nome;
+        }
+
         //Metodo per inserire una nuova data
         public DateTime NuovoAppuntamento()
         {
+            Console.WriteLine("Inserisci nuova data: ");
             DateTime nuovaData = DateTime.Parse(Console.ReadLine());
             this.dataAppuntamento = nuovaData;
 
