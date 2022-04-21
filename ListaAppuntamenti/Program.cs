@@ -33,20 +33,13 @@ int numeroAppuntamenti = int.Parse(Console.ReadLine());
             }
     }
 
+
     //Stampo la lista con il foreach
     foreach (Appuntamenti appuntamento in listaAppuntamenti)
     {
         Console.WriteLine(appuntamento.ToString());
     }
+   
 
-    /*
-    string scelta1 = "si";
-    string scelta2 = "no";
-    Console.WriteLine("Vuoi modificare un elemento nelle lista[si/no]?");
-    string sceltaModifica = Console.ReadLine();
 
-    if (sceltaModifica.Equals(scelta1))
-    {
-        
-    }*/
  

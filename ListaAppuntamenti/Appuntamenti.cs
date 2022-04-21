@@ -27,10 +27,18 @@ namespace ListaAppuntamenti
             }   
         }
 
-        public void NuovaData()
+        //Metodo per inserire una nuova data
+        public DateTime NuovoAppuntamento()
         {
-            DateTime newDate = DateTime.Parse(Console.ReadLine());
-            this.dataAppuntamento = newDate;
+            DateTime nuovaData = DateTime.Parse(Console.ReadLine());
+            this.dataAppuntamento = nuovaData;
+
+            if (this.dataAppuntamento <= DateTime.Now)
+            {
+                throw new InvalidDataException("La data inserita e' nel passato o oggi.");
+            }
+
+            return this.dataAppuntamento;
         }
 
         //Override del metodo toString per stampare ogni appuntamento in lista
