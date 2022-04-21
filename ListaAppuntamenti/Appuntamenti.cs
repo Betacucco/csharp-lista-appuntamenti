@@ -8,11 +8,13 @@ namespace ListaAppuntamenti
 {
     internal class Appuntamenti 
     {
+        //ATTRIBUTI
         public string nome { get; }
-        public string localitaAppuntamento { get; set; }
+        public string localitaAppuntamento { get; }
 
-        public DateTime dataAppuntamento { get; }
+        public DateTime dataAppuntamento { get; set; }
 
+        //COSTRUTTORE
         public Appuntamenti(string nome, string localitaAppuntamento, DateTime dataAppuntamento)
         {
             this.nome = nome;
@@ -22,10 +24,16 @@ namespace ListaAppuntamenti
             if (this.dataAppuntamento <= DateTime.Now)
             {
                 throw new InvalidDataException("La data inserita e' nel passato o oggi.");
-
             }   
         }
 
+        public void NuovaData()
+        {
+            DateTime newDate = DateTime.Parse(Console.ReadLine());
+            this.dataAppuntamento = newDate;
+        }
+
+        //Override del metodo toString per stampare ogni appuntamento in lista
         public override string ToString()
         {
             string rappresentazioneInStringa = "";
