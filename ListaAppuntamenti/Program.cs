@@ -40,21 +40,29 @@ int numeroAppuntamenti = int.Parse(Console.ReadLine());
     }
 
     //Chiediamo all'utente se vuole cambiare data
-    Console.WriteLine("Vuoi cambiare data?");
+    Console.WriteLine("Vuoi cambiare data [si/no]?");
     string risposta = Console.ReadLine();
 
     if (risposta == "si")
     {
         Console.WriteLine("Inserisci nome appuntamento a cui vuoi cambiare l'orario");
         string nomeAppuntamentoDaCambiare = Console.ReadLine();
+        
         //Prendiamo l'indice in base al nome dell'appuntamento presente in lista
-        int index = listaAppuntamenti.FindIndex(a => a.nome == nomeAppuntamentoDaCambiare);
+        int index = listaAppuntamenti.FindIndex(ricercaNome => ricercaNome.GetNome() == nomeAppuntamentoDaCambiare);
+        Console.WriteLine("Inserisci nuova data: ");
+        DateTime nuovaData = DateTime.Parse(Console.ReadLine());
+
         //Cambiamo l'ora con il metodo creato nella classe
-        listaAppuntamenti[index].NuovoAppuntamento();
+        listaAppuntamenti[index].NuovoAppuntamento(nuovaData);
     }
     else if (risposta == "no")
     {
         Console.WriteLine("Nessun cambiamento!");
+    }
+    else
+    {
+    Console.WriteLine("Non hai inserito si o no.");
     }
 
      //Stampo la lista con il foreach

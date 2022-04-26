@@ -9,10 +9,10 @@ namespace ListaAppuntamenti
     internal class Appuntamenti 
     {
         //ATTRIBUTI
-        public string nome;
-        public string localitaAppuntamento { get; }
+        private string nome;
+        private string localitaAppuntamento;
 
-        public DateTime dataAppuntamento { get; set; }
+        private DateTime dataAppuntamento;
 
         //COSTRUTTORE
         public Appuntamenti(string nome, string localitaAppuntamento, DateTime dataAppuntamento)
@@ -27,16 +27,33 @@ namespace ListaAppuntamenti
             }   
         }
 
+        //------------GET-------------
         public string GetNome()
         {
             return nome;
         }
 
-        //Metodo per inserire una nuova data
-        public DateTime NuovoAppuntamento()
+        public string GetLocalitaAppuntamento()
         {
-            Console.WriteLine("Inserisci nuova data: ");
-            DateTime nuovaData = DateTime.Parse(Console.ReadLine());
+            return localitaAppuntamento;
+        }
+        //------------------------------
+
+        //------------SET------------------
+        public void SetNome(string newName)
+        {
+            nome = newName;
+        }
+
+        public void SetLocalitaAppuntamento(string nuovaLocalita)
+        {
+            localitaAppuntamento = nuovaLocalita;
+        }
+        //--------------------------------------
+
+        //Metodo per inserire una nuova data
+        public DateTime NuovoAppuntamento(DateTime nuovaData)
+        {
             this.dataAppuntamento = nuovaData;
 
             if (this.dataAppuntamento <= DateTime.Now)
